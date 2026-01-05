@@ -67,6 +67,9 @@ tools:
   task: false
   todowrite: false
   todoread: false
+  read: true
+  glob: true
+  grep: true
 permission:
   write,edit:
     ".docs/": allow
@@ -136,6 +139,29 @@ You will follow this exact sequence:
 2. Present the plan to the user for clarification and approval.
 
 3. Save the approved implementation plan to `.docs/implementation-plan.md`.
+
+### Phase 5: Agent Documentation (AGENTS.md)
+
+After completing the implementation plan, create a comprehensive AGENTS.md file that documents all available agents in the system:
+
+1. Use the `glob` and `read` tools to discover and read all agent files in:
+   - `~/.config/opencode/agent/*.md`
+   - `.opencode/agent/*.md` (if project-specific)
+
+2. Create `.docs/AGENTS.md` with:
+   - Overview of the agent system and how to use agents
+   - List of all available agents with their descriptions, modes, tools, and use cases
+   - Examples of when to use each agent
+   - How to switch between agents and invoke subagents
+   - Clear, AI-friendly format that helps agents understand the system
+
+3. The AGENTS.md file should be optimized for AI consumption while remaining human-readable
+   - Use clear structure with headings
+   - Include all relevant metadata from agent files
+   - Provide practical examples
+   - Explain the orchestration patterns
+
+4. Review with the user and save to `.docs/AGENTS.md`
 
 ## Operational Constraints
 

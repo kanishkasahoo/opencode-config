@@ -110,6 +110,16 @@ The following OpenCode default agents are disabled in `opencode.json`:
 - **Focus**: Production-grade frontend interfaces
 - **Approach**: High design quality with creative, polished code
 
+### system-engineer
+- **Path**: `skill/system-engineer/SKILL.md`
+- **Focus**: Production-grade infrastructure and cloud systems
+- **Principles**:
+  - Cost-aware design to avoid wasteful spending
+  - Resilient architecture with failure recovery
+  - Observable systems with proper monitoring
+  - Reproducible infrastructure as code
+  - Security-first approach
+
 ## Workflow Pattern
 
 ### Standard Development Workflow
@@ -161,7 +171,8 @@ opencode/
 │   └── system-design-architect.md   # Subagent: architecture
 ├── skill/
 │   ├── backend-engineering/SKILL.md  # Backend development skill
-│   └── frontend-design/SKILL.md      # Frontend development skill
+│   ├── frontend-design/SKILL.md      # Frontend development skill
+│   └── system-engineer/SKILL.md      # System engineering skill
 └── README.md                        # This file
 ```
 

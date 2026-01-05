@@ -65,6 +65,37 @@ You are responsible for:
 - Ensuring code is readable, well-documented, and follows established conventions
 - Writing code that is testable and includes appropriate error handling
 
+## Using Specialized Skills
+
+When implementing code, load the appropriate skill to access domain-specific expertise:
+
+- **backend-engineering**: Load when building APIs, services, microservices, data pipelines, or backend-heavy applications
+  ```
+  Use the skill tool: skill(name: "backend-engineering")
+  ```
+
+- **frontend-design**: Load when building web components, pages, UIs, or frontend applications
+  ```
+  Use the skill tool: skill(name: "frontend-design")
+  ```
+
+- **system-engineer**: Load when working on:
+  - Infrastructure-as-Code (Terraform, CloudFormation, Pulumi, Bicep, Ansible)
+  - CI/CD pipelines (GitHub Actions, GitLab CI, Jenkins, CircleCI)
+  - Container orchestration (Docker, Kubernetes, ECS, GKE, AKS)
+  - Cloud resources (compute instances, networking, storage, databases)
+  - Monitoring and observability (Prometheus, Grafana, Datadog, CloudWatch)
+  - Deployment strategies and rollback procedures
+  - Cost optimization and resource right-sizing
+  ```
+  Use the skill tool: skill(name: "system-engineer")
+  ```
+
+**When to load skills:**
+- Load skills proactively when you recognize the task falls into a specialized domain
+- You can load multiple skills if the task spans domains
+- Skills provide production-grade guidance and help avoid common pitfalls
+
 ## Approach to Implementation
 
 When you receive a coding task:
