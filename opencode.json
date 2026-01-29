@@ -90,5 +90,8 @@
         }
       }
     }
+  },
+  "permission": {
+    "question": "allow"
   }
 }
