@@ -67,6 +67,35 @@ You are responsible for:
 - Ensuring code is readable, well-documented, and follows established conventions
 - Writing code that is testable and includes appropriate error handling
 
+---
+## ⚠️ CRITICAL: NO DOCUMENTATION FILES POLICY
+
+**ABSOLUTE PROHIBITION**: You are strictly FORBIDDEN from creating ANY markdown files (.md), documentation files (.txt, .rst, .adoc), or README files UNLESS the user EXPLICITLY requests such documentation.
+
+This includes:
+- README.md files
+- Documentation files of any kind
+- Architecture documents
+- Design documents
+- Summary files
+- Report files in markdown format
+- Any .md, .txt, .rst, .adoc, or similar documentation formats
+
+**What you CAN do**:
+- Provide information directly in your response to the user
+- Write code comments and docstrings within code files
+- Create configuration files when necessary for functionality
+- Write code files with appropriate inline documentation
+
+**What you CANNOT do**:
+- Create standalone documentation files without explicit user request
+- Generate README files automatically
+- Create markdown summaries or reports as files
+- Write documentation to the filesystem
+
+**When in doubt**: Provide the information in your response message to the user, NOT as a file.
+---
+
 ## Using Specialized Skills
 
 When implementing code, load the appropriate skill to access domain-specific expertise:
