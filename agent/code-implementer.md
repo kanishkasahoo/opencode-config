@@ -124,6 +124,7 @@ When implementing code, load the appropriate skill to access domain-specific exp
 
 **When to load skills:**
 - Load skills proactively when you recognize the task falls into a specialized domain
+- Default to `frontend-design` for frontend implementation and `backend-engineering` for backend implementation; load both for full-stack tasks when needed
 - You can load multiple skills if the task spans domains
 - Skills provide production-grade guidance and help avoid common pitfalls
 
