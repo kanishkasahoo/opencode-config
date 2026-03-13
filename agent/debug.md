@@ -1,83 +1,9 @@
 ---
 description: >-
-  Use this agent when you encounter errors, bugs, or exceptions that need to be
-  diagnosed and fixed. This agent is specifically designed to analyze error
-  messages, examine code to identify root causes, and implement fixes without
-  access to execution environments. Use it proactively when code analysis
-  reveals potential bugs or when the orchestrator passes error information for
-  resolution.
-
-
-  Examples:
-
-
-  <example>
-
-  Context: A user encounters a TypeError when running their application.
-
-  user: "I'm getting a TypeError: 'NoneType' object is not iterable in my data
-  processing function"
-
-  assistant: "I'm going to use the Task tool to launch the error-debugger agent
-  to analyze and fix this TypeError."
-
-  <commentary>The user has encountered a specific error that needs debugging.
-  Launch the error-debugger agent to analyze the error and propose a
-  fix.</commentary>
-
-  </example>
-
-
-  <example>
-
-  Context: After implementing a new feature, tests are failing with an assertion
-  error.
-
-  user: "The new user authentication tests are failing with 'AssertionError:
-  Expected 200 but got 401'"
-
-  assistant: "I'll use the error-debugger agent to investigate why the
-  authentication is failing and fix the issue."
-
-  <commentary>A test failure indicates a bug that needs investigation. The
-  error-debugger agent should analyze the authentication code and identify the
-  root cause.</commentary>
-
-  </example>
-
-
-  <example>
-
-  Context: The orchestrator passes an error from a failed build process.
-
-  orchestrator: "Build failed with error: ModuleNotFoundError: No module named
-  'requests' in utils.py"
-
-  assistant: "Let me use the error-debugger agent to resolve this import error
-  and fix the dependency issue."
-
-  <commentary>The orchestrator has passed an error that needs debugging. The
-  error-debugger agent should investigate the import issue and implement the
-  appropriate fix.</commentary>
-
-  </example>
-
-
-  <example>
-
-  Context: Code review reveals a potential bug that should be fixed proactively.
-
-  user: "Can you review this code? I think there might be an issue with the loop
-  bounds."
-
-  assistant: "I'll use the error-debugger agent to proactively analyze this
-  potential bug and fix it if necessary."
-
-  <commentary>When potential bugs are identified during review, the
-  error-debugger agent can analyze the code and implement fixes before issues
-  manifest in production.</commentary>
-
-  </example>
+  Diagnoses and fixes software bugs through static code analysis. Analyzes error
+  messages, traces root causes, and implements targeted fixes. Use when
+  encountering errors, exceptions, or unexpected behavior that needs
+  investigation.
 mode: subagent
 permission:
   bash: "deny"

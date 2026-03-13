@@ -4,7 +4,7 @@ This directory contains a specialized OpenCode configuration optimized for coord
 
 ## Overview
 
-This configuration disables OpenCode's default agents in favor of a **development orchestrator pattern** where specialized subagents handle specific tasks under coordinated management. The setup integrates two MCP (Model Context Protocol) servers to provide access to external documentation and real-world code examples.
+This configuration disables OpenCode's default agents in favor of a concise multi-agent setup with specialized agents and shared research tools. The setup integrates two MCP (Model Context Protocol) servers to provide access to external documentation and real-world code examples.
 
 ## Configuration Details
 
@@ -16,7 +16,7 @@ The following OpenCode default agents are disabled in `opencode.json`:
 - **build**: Default build/implementation agent  
 - **general**: General-purpose agent
 
-**Rationale**: These agents are replaced by a more sophisticated multi-agent system where the development orchestrator coordinates specialized subagents (code-implementer, error-debugger, security-auditor, test-runner) to ensure comprehensive, quality-assured development workflows.
+**Rationale**: These agents are replaced by a custom agent set that separates orchestration, investigation, implementation, testing, security review, planning, and general Q&A.
 
 ### MCP Servers
 
@@ -40,45 +40,37 @@ The following OpenCode default agents are disabled in `opencode.json`:
 
 ## Agent Architecture
 
-### Primary Agents
+### Agent Inventory
 
-**development-orchestrator**
+**orchestrate**
 - **Mode**: Primary
 - **Role**: Central coordinator for complex development workflows
-- **Responsibilities**:
-  - Analyze requirements and plan execution strategy
-  - Delegate tasks to appropriate subagents
-  - Monitor progress and validate outputs
-  - Ensure security reviews and testing are performed
-  - Provide frequent progress updates to users
-- **Workflow**: Implementation → Security Review → Testing (with debugging loops as needed)
+- **Focus**: Plan execution, delegate work, validate outcomes
 
-**codebase-investigator**
+**inspect**
 - **Mode**: Primary
 - **Role**: Deep code analysis and architecture explanation
-- **Responsibilities**:
-  - Investigate codebases thoroughly
-  - Explain architecture and design patterns
-  - Trace processing pipelines and flows
-  - Provide detailed implementation explanations
 - **Constraints**: Read-only (no code modifications)
+
+**design**
+- **Mode**: Primary
+- **Role**: Requirements, architecture, and implementation planning
+
+**atlas**
+- **Mode**: All
+- **Role**: Broad question-answering, practical guidance, and research-heavy explanations
 
 ### Subagents
 
-**code-implementer**
+**implement**
 - **Mode**: Subagent
 - **Role**: Write clean, production-quality code
-- **Responsibilities**:
-  - Implement features based on specifications
-  - Modify existing code (bug fixes, improvements)
-  - Ensure code follows best practices and SOLID principles
-  - Include proper error handling and documentation
 
-**error-debugger**
+**debug**
 - **Mode**: Subagent
 - **Role**: Diagnose and fix bugs, errors, and unexpected behavior
 
-**security-auditor**
+**secure**
 - **Mode**: Subagent
 - **Role**: Review code for vulnerabilities and security best practices
 - **Trigger Points**:
@@ -86,13 +78,9 @@ The following OpenCode default agents are disabled in `opencode.json`:
   - After changes to security-critical areas
   - When handling user input, external APIs, or sensitive data
 
-**test-runner**
+**test**
 - **Mode**: Subagent
 - **Role**: Execute tests, generate coverage, verify functionality
-
-**system-design-architect**
-- **Mode**: Subagent
-- **Role**: System architecture and design planning
 
 ## Skills
 
@@ -125,12 +113,13 @@ The following OpenCode default agents are disabled in `opencode.json`:
 ### Standard Development Workflow
 
 1. **User Request**: User describes desired functionality or problem
-2. **Orchestration**: development-orchestrator analyzes requirements
+2. **Orchestration**: orchestrate analyzes requirements
 3. **Delegation**: Orchestrator delegates to appropriate subagents:
-   - code-implementer for new code/changes
-   - error-debugger if issues reported
-   - security-auditor for sensitive features
-   - test-runner for verification
+    - implement for new code/changes
+    - debug if issues reported
+    - secure for sensitive features
+    - test for verification
+    - design when upfront requirements/design work is needed
 4. **Validation**: Orchestrator validates subagent outputs
 5. **Iteration**: If issues found, orchestrator re-delegates with feedback
 6. **Completion**: Orchestrator verifies all requirements met and provides summary
@@ -138,7 +127,7 @@ The following OpenCode default agents are disabled in `opencode.json`:
 ### Investigation Workflow
 
 1. **User Query**: User asks about codebase architecture or behavior
-2. **Investigation**: codebase-investigator analyzes relevant code
+2. **Investigation**: inspect analyzes relevant code
 3. **Research**: Uses MCP servers for documentation and patterns
 4. **Reporting**: Provides structured explanation with code references
 
@@ -160,39 +149,39 @@ Both servers are automatically available to all agents for research and referenc
 
 ```
 opencode/
-├── opencode.json              # Configuration (disabled defaults, MCP servers)
+├── opencode.json
 ├── agent/
-│   ├── development-orchestrator.md  # Primary orchestrator agent
-│   ├── codebase-investigator.md     # Primary investigation agent
-│   ├── code-implementer.md          # Subagent: implementation
-│   ├── error-debugger.md            # Subagent: debugging
-│   ├── security-auditor.md          # Subagent: security review
-│   ├── test-runner.md               # Subagent: testing
-│   └── system-design-architect.md   # Subagent: architecture
+│   ├── atlas.md
+│   ├── orchestrate.md
+│   ├── debug.md
+│   ├── design.md
+│   ├── implement.md
+│   ├── inspect.md
+│   ├── secure.md
+│   └── test.md
 ├── skill/
-│   ├── backend-engineering/SKILL.md  # Backend development skill
-│   ├── frontend-design/SKILL.md      # Frontend development skill
-│   └── system-engineer/SKILL.md      # System engineering skill
-└── README.md                        # This file
+│   ├── backend-engineering/SKILL.md
+│   ├── frontend-design/SKILL.md
+│   └── system-engineer/SKILL.md
+└── README.md
 ```
 
 ## Key Benefits
 
-1. **Quality Assurance**: Security reviews and testing are mandatory, not optional
-2. **Specialization**: Each agent focuses on what it does best
-3. **Coordination**: Orchestrator ensures nothing falls through the cracks
+1. **Specialization**: Each agent has a narrow, clear role
+2. **Coordination**: orchestrate manages multi-step engineering work
+3. **Coverage**: atlas, inspect, design, implement, debug, secure, and test cover research through verification
 4. **External Knowledge**: MCP servers provide current documentation and real-world patterns
-5. **Comprehensive Coverage**: Investigation, implementation, security, testing, and debugging all covered
 
 ## Interaction Pattern
 
 When working with this setup:
 
-1. **For new features/bug fixes**: The development-orchestrator will coordinate the full workflow
-2. **For code questions**: The codebase-investigator will analyze and explain
-3. **For implementation details**: The orchestrator delegates to code-implementer
-4. **For security-sensitive work**: Security-auditor is automatically invoked
-5. **For verification**: Test-runner validates functionality
+1. **For new features/bug fixes**: orchestrate coordinates the workflow
+2. **For code questions**: inspect analyzes and explains
+3. **For planning/design work**: design defines requirements and architecture
+4. **For broad Q&A or research**: atlas answers directly or goes deep
+5. **For implementation, security, and verification**: implement, secure, and test handle execution
 
 All agents have access to context7 (documentation) and gh_grep (code examples) for research.
 

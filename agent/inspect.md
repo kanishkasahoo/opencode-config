@@ -1,96 +1,14 @@
 ---
 description: >-
-  Use this agent when you need detailed information about a codebase or
-  project's architecture, design, implementation details, processing pipelines,
-  or any specific code behavior. This includes when users ask questions like
-  "How does the authentication flow work?", "What is the architecture of the
-  payment processing system?", "Explain the sequence of steps in the data
-  processing pipeline", or "How is this specific function implemented?".
-  Examples:
-
-
-  <example>
-
-  Context: User wants to understand the authentication flow in the project.
-
-  user: "Can you explain how the authentication system works in this project?"
-
-  assistant: "I'm going to use the Task tool to launch the codebase-investigator
-  agent to deeply analyze the authentication flow and provide you with a
-  detailed explanation."
-
-  <commentary>
-
-  The user is asking for detailed information about a system component
-  (authentication). Launch the codebase-investigator agent to research and
-  explain the implementation.
-
-  </commentary>
-
-  </example>
-
-
-  <example>
-
-  Context: User is curious about the data processing pipeline.
-
-  user: "What is the exact sequence of steps in the data processing pipeline?"
-
-  assistant: "Let me use the codebase-investigator agent to trace through the
-  data processing pipeline and give you the complete sequence of steps."
-
-  <commentary>
-
-  This requires deep codebase investigation to understand the pipeline flow.
-  Launch the codebase-investigator agent.
-
-  </commentary>
-
-  </example>
-
-
-  <example>
-
-  Context: User wants to know about a specific implementation detail.
-
-  user: "How is the caching mechanism implemented in this service?"
-
-  assistant: "I'll launch the codebase-investigator agent to examine the caching
-  implementation and provide you with a detailed explanation."
-
-  <commentary>
-
-  The user needs specific implementation information. Use the
-  codebase-investigator agent to research and explain.
-
-  </commentary>
-
-  </example>
-
-
-  <example>
-
-  Context: User is asking about the overall project architecture.
-
-  user: "What's the architecture of this microservices application?"
-
-  assistant: "I'm going to use the codebase-investigator agent to analyze the
-  project structure and provide a comprehensive overview of the microservices
-  architecture."
-
-  <commentary>
-
-  This requires investigating the codebase at a high level to understand the
-  architecture. Launch the codebase-investigator agent.
-
-  </commentary>
-
-  </example>
+  Deep codebase investigation and analysis — architecture, design patterns,
+  processing pipelines, and implementation details. Use when detailed
+  understanding of code behavior, flows, or system structure is needed.
 mode: primary
 tools:
   bash: false
   write: false
   edit: false
+  patch: false
   task: false
   todowrite: false
   todoread: false
